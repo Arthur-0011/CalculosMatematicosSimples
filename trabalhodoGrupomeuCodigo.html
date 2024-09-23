@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cálculos</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .container {
+                max-width: 400px;
+                margin: auto;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            input, select, button {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+            }
+            button {
+                font-size: 16px;
+                cursor: pointer;
+            }
+            #resultado {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Cálculos</h1>
+            <div class="form-group">
+                <label for="forma">Escolha um cálculo que deseja realizar:</label>
+                <select id="forma">
+                    <option value="soma">Soma</option>
+                    <option value="subtracao">Subtração</option>
+                    <option value="divisao">Divisão</option>
+                    <option value="multiplicacao">Multiplicação</option>
+                </select>
+            </div>
+            <div class="form-group" id="input1-group">
+
+                <label for="input1">Número 1:</label>
+                <input type="number" id="input1" />
+            </div>
+            <div class="form-group" id="input2-group">
+                <label for="input2">Número 2:</label>
+                <input type="number" id="input2" />
+            </div>
+            <button onclick="calculosmatematicos()">Calcular</button>
+            <h2 id="resultado"></h2>
+        </div>
+        <script>
+            document.getElementById('forma').addEventListener('change', function () {
+                const forma = this.value;
+                const input1Label = document.querySelector('label[for="input1"]');
+                const input2Group = document.getElementById('input2-group');
+                if (forma === 'soma') {
+                    input1Label.textContent = 'Número 1:';
+                    input2Group.style.display = 'block';
+                } else if (forma === 'subtracao') {
+                    input1Label.textContent = 'Número 1:';
+                    input2Group.style.display = 'block';
+                } else if (forma === 'divisao') {
+                    input1Label.textContent = 'Número 1:';
+                    input2Group.style.display = 'block';
+                } else if (forma === 'multiplicacao') {
+                    input1Label.textContent = 'Número 1:';
+                    input2Group.style.display = 'block';
+                }
+            });
+            function calculosmatematicos() {
+                const forma = document.getElementById('forma').value;
+                const input1 = parseFloat(document.getElementById('input1').value);
+                const input2 = parseFloat(document.getElementById('input2').value);
+                let area = 0;
+                
+                if (forma === 'soma') {
+                    area = input1 + input2;
+                } else if (forma === 'subtracao') {
+                    area = input1 - input2;
+                } else if (forma === 'divisao') {
+                    area = input1 / input2;
+                } else if (forma === 'multiplicacao') {
+                    area = input1 * input2;
+                }
+                document.getElementById('resultado').textContent = `O resultado é: ${area.toFixed(2)}.`;
+            }
+        </script>
+    </body>
+</html>
